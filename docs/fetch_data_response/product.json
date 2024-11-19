@@ -1,0 +1,177 @@
+{
+    "featured_end_date": "0001-01-01T00:00:00",
+    "products": [
+        {
+            "visible_individually": true,
+            "name": "KGTEL KG1100",
+            "localized_names": [
+                {
+                    "language_id": 2,
+                    "localized_name": "KGTEL KG1100"
+                }
+            ],
+            "short_description": "بدون دوربین",
+            "allow_customer_reviews": true,
+            "approved_rating_sum": 0,
+            "not_approved_rating_sum": 0,
+            "approved_total_reviews": 0,
+            "not_approved_total_reviews": 0,
+            "sku": "1001015384",
+            "GarantiId": 0,
+            "PartId": 0,
+            "is_gift_card": false,
+            "require_other_products": false,
+            "automatically_add_required_products": false,
+            "is_download": false,
+            "unlimited_downloads": true,
+            "max_number_of_downloads": 10,
+            "has_sample_download": false,
+            "has_user_agreement": false,
+            "is_recurring": false,
+            "recurring_cycle_length": 0,
+            "recurring_total_cycles": 0,
+            "is_rental": false,
+            "rental_price_length": 1,
+            "is_ship_enabled": true,
+            "is_free_shipping": false,
+            "ship_separately": false,
+            "additional_shipping_charge": 0.0000,
+            "is_tax_exempt": false,
+            "is_telecommunications_or_broadcasting_or_electronic_services": false,
+            "use_multiple_warehouses": true,
+            "manage_inventory_method_id": 1,
+            "in_stock": true,
+            "display_stock_availability": false,
+            "stock_availability": "",
+            "display_stock_quantity": false,
+            "min_stock_quantity": 0,
+            "notify_admin_for_quantity_below": 1,
+            "allow_back_in_stock_subscriptions": false,
+            "order_minimum_quantity": 1,
+            "order_maximum_quantity": 5,
+            "allow_adding_only_existing_attribute_combinations": false,
+            "disable_buy_button": false,
+            "disable_wishlist_button": false,
+            "available_for_pre_order": false,
+            "call_for_price": false,
+            "price": 699000.0000,
+            "old_price": 669000.0000,
+            "final_price": "699,000",
+            "final_price_value": 699000.0000,
+            "product_cost": 0.0000,
+            "customer_enters_price": false,
+            "minimum_customer_entered_price": 0.0000,
+            "maximum_customer_entered_price": 0.0000,
+            "is_new": false,
+            "is_amazing": false,
+            "has_tier_prices": false,
+            "has_discounts_applied": false,
+            "weight": 0.0000,
+            "length": 0.0000,
+            "width": 0.0000,
+            "height": 0.0000,
+            "display_order": 0,
+            "published": true,
+            "coming_soon": false,
+            "deleted": false,
+            "created_on_utc": "2024-06-01T15:16:50",
+            "updated_on_utc": "2024-06-01T17:32:05",
+            "product_type": "GroupedProduct",
+            "parent_grouped_product_id": 0,
+            "role_ids": [],
+            "discount_ids": [],
+            "store_ids": [],
+            "manufacturers": [
+                {
+                    "name": "KGTEL",
+                    "se_name": "kgtel-2",
+                    "is_active": false,
+                    "id": 123
+                }
+            ],
+            "images": [
+                {
+                    "id": 39905,
+                    "picture_id": 79267,
+                    "position": 0,
+                    "src": "https://staging.hamrahtel.com/images/thumbs/0079267_kgtel-kg1100.jpeg"
+                }
+            ],
+            "attributes": [
+                {
+                    "product_attribute_id": 10,
+                    "product_attribute_name": "رنگ",
+                    "is_required": false,
+                    "attribute_control_type_id": 40,
+                    "display_order": 0,
+                    "attribute_control_type_name": "ColorSquares",
+                    "attribute_values": [
+                        {
+                            "type_id": 10,
+                            "associated_product_id": 15385,
+                            "name": "مشکی",
+                            "color_squares_rgb": "#000000",
+                            "price_adjustment": 699000.0000,
+                            "weight_adjustment": 0.0000,
+                            "cost": 0.0000,
+                            "cart_quantity": 0,
+                            "in_stock": true,
+                            "required_ofogh": false,
+                            "required_province": false,
+                            "is_pre_selected": false,
+                            "display_order": 0,
+                            "price": 699000.0000,
+                            "old_price": 699000.0000,
+                            "final_price": "699,000",
+                            "final_price_value": 699000.0000,
+                            "discount_ids": [],
+                            "has_discounts_applied": false,
+                            "type": "AssociatedToProduct",
+                            "attribute_combination_id": 0,
+                            "id": 52256
+                        }
+                    ],
+                    "id": 7627
+                }
+            ],
+            "product_attribute_combinations": [],
+            "product_specification": {
+                "groups": [
+                    {
+                        "attributes": [],
+                        "id": 0
+                    }
+                ]
+            },
+            "associated_product_ids": [
+                15385
+            ],
+            "category_ids": [
+                171,
+                20
+            ],
+            "tags": [],
+            "vendor_id": 1,
+            "se_name": "kgtel-kg1100",
+            "product_visit": 1095,
+            "breadcrumb": {
+                "category_breadcrumb": [
+                    {
+                        "name": "گوشی موبایل",
+                        "se_name": "گوشی-موبایل-2",
+                        "sub_categories": [],
+                        "id": 20
+                    },
+                    {
+                        "name": "سایر برندها ",
+                        "se_name": "سایر-برندها",
+                        "sub_categories": [],
+                        "id": 171
+                    }
+                ],
+                "id": 0
+            },
+            "id": 15384
+        }
+    ]
+}

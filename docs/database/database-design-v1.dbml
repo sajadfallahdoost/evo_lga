@@ -1,0 +1,137 @@
+Table users {
+  id               SERIAL [pk]
+  username         VARCHAR(50) [unique, not null]       // Username for login
+  password         VARCHAR(128) [not null]
+  email            VARCHAR(100) [unique, not null]
+  phone_number     VARCHAR(15) [unique, not null]
+  national_id      VARCHAR(20) [unique, not null]
+  role_id          INT [ref: > roles.id]                // Foreign key to roles table
+  first_name       VARCHAR(50)
+  last_name        VARCHAR(50)
+  avatar_url       VARCHAR(500)                         // URL for user's avatar
+  is_active        BOOLEAN [default: true]
+  created_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  updated_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table roles {
+  id               SERIAL [pk]
+  name             VARCHAR(20) [unique, not null]       // 'client', 'admin', 'superuser', etc.
+}
+
+Table addresses {
+  id               SERIAL [pk]
+  user_id          INT [ref: > users.id]                // Foreign key to users table
+  address_line1    VARCHAR(255) [not null]
+  address_line2    VARCHAR(255)
+  city             VARCHAR(100) [not null]
+  state            VARCHAR(100)
+  postal_code      VARCHAR(20) [not null]
+  country          VARCHAR(100) [not null]
+  is_default       BOOLEAN [default: false]
+}
+
+Table manufacturers {
+  id               SERIAL [pk]
+  name             VARCHAR(255) [not null]
+  se_name          VARCHAR(255)
+  is_active        BOOLEAN [default: true]
+}
+
+Table products {
+  id               SERIAL [pk]
+  name             VARCHAR(255) [not null]
+  sku              VARCHAR(100) [unique, not null]
+  description      TEXT
+  price            DECIMAL(10, 2) [not null]
+  final_price      DECIMAL(10, 2)                       // Adjusted price after discount
+  in_stock         BOOLEAN [default: true]              // Availability status
+  created_on       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  updated_on       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  manufacturer_id  INT [ref: > manufacturers.id]
+  color            VARCHAR(100)
+  guarantee_option VARCHAR(255)                         // Guarantee details
+}
+
+Table product_images {
+  id               SERIAL [pk]
+  product_id       INT [ref: > products.id]             // Foreign key to products table
+  image_url        VARCHAR(500) [not null]              // URL of the image
+  position         INT [default: 0]                     // Position/order in the gallery
+}
+
+Table product_attributes {
+  id               SERIAL [pk]
+  product_id       INT [ref: > products.id]             // Foreign key to products table
+  name             VARCHAR(100) [not null]              // Attribute name, e.g., "RAM"
+  value            VARCHAR(255)                         // Attribute value, e.g., "8GB"
+  description      TEXT                                 // Additional details
+}
+
+Table product_reviews {
+  id               SERIAL [pk]
+  product_id       INT [ref: > products.id]             // Foreign key to products table
+  user_id          INT [ref: > users.id]                // Foreign key to users table
+  rating           INT                                  // Rating (1-5 stars)
+  review_text      TEXT                                 // User's review text
+  created_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table related_products {
+  id               SERIAL [pk]
+  product_id       INT [ref: > products.id]             // Main product
+  related_product_id INT [ref: > products.id]           // Related product
+}
+
+Table product_discounts {
+  id               SERIAL [pk]
+  product_id       INT [ref: > products.id]             // Foreign key to products table
+  discount_percent DECIMAL(5, 2)                        // Discount percentage, e.g., 20.00 for 20%
+  start_date       TIMESTAMP [not null]                 // Discount start date
+  end_date         TIMESTAMP [not null]                 // Discount end date
+  is_active        BOOLEAN [default: true]              // Quick toggle for discount status
+}
+
+Table baskets {
+  id               SERIAL [pk]
+  user_id          INT [ref: > users.id]
+  created_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  updated_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table basket_items {
+  id               SERIAL [pk]
+  basket_id        INT [ref: > baskets.id]
+  product_id       INT [ref: > products.id]
+  quantity         INT [default: 1]
+  added_at         TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table orders {
+  id               SERIAL [pk]
+  user_id          INT [ref: > users.id]
+  address_id       INT [ref: > addresses.id]
+  total_price      DECIMAL(10, 2) [not null]
+  discount_applied DECIMAL(10, 2) [default: 0.00]      // Total discount applied on the order
+  logistic_cost    DECIMAL(10, 2) [default: 0.00]      // Cost for logistics/shipping
+  status           VARCHAR(20) [default: 'pending']
+  created_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  updated_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table order_items {
+  id               SERIAL [pk]
+  order_id         INT [ref: > orders.id]
+  product_id       INT [ref: > products.id]
+  quantity         INT [not null]
+  price            DECIMAL(10, 2) [not null]
+}
+
+Table payments {
+  id               SERIAL [pk]
+  order_id         INT [ref: > orders.id]
+  amount           DECIMAL(10, 2) [not null]
+  status           VARCHAR(20) [not null]
+  transaction_id   VARCHAR(100) [unique]
+  created_at       TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}

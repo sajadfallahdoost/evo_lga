@@ -1,0 +1,15 @@
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+
+# Env files
+*.env
+
+# Django static files
+/staticfiles
+
+# Local development files
+.idea
+.vscode
+.DS_Store
